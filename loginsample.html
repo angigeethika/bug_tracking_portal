@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="loginForm">
+        <h2>Login</h2>
+        <label for="loginUsername">Username:</label>
+        <input type="text" id="loginUsername" name="loginUsername" required>
+
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" name="loginPassword" required>
+
+        <button type="button" onclick="login()">Login</button>
+    </form>
+
+    <form id="registrationForm" style="margin-top: 20px;">
+        <h2>Register</h2>
+        <label for="registerUsername">Username:</label>
+        <input type="text" id="registerUsername" name="registerUsername" required>
+
+        <label for="registerPassword">Password:</label>
+        <input type="password" id="registerPassword" name="registerPassword" required>
+
+        <button type="button" onclick="register()">Register</button>
+    </form>
+
+    <script>
+        var users = []; // Array to store registered users
+
+        function login() {
+            var username = document.getElementById("loginUsername").value;
+            var password = document.getElementById("loginPassword").value;
+
+            // Check if user exists in the array (replace with database check in a real scenario)
+            var userExists = users.some(function(user) {
+                return user.username === username && user.password === password;
+            });
+
+            if (userExists) {
+                alert("Login successful!");
+                // Redirect to the home screen or perform any other action
+                window.location.href = "home.html";
+            } else {
+                alert("Invalid credentials. Please try again.");
+            }
+        }
+
+        function register() {
+            var username = document.getElementById("registerUsername").value;
+            var password = document.getElementById("registerPassword").value;
+
+            // Check if the username is not already registered
+            var usernameExists = users.some(function(user) {
+                return user.username === username;
+            });
+
+            if (usernameExists) {
+                alert("Username already exists. Please choose a different one.");
+            } else {
+                // Add the new user to the array (replace with database storage in a real scenario)
+                users.push({ username: username, password: password });
+                alert("Registration successful!");
+            }
+        }
+    </script>
+
+</body>
+</html>
+<!-- function getCookie(name) {
+    const value = ';${document.cookie}';
+    const parts = value.split('; ${name}=');
+    if (parts.length === 2) return parts.pop().split(';').shift();
+} -->

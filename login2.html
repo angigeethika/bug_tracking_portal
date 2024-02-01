@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Portal</title>
+    <link rel="shortcut icon" href="IMAGES/system_admin.ico" type="image/x-icon">
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+        <div class="wrapper">
+            <form id="login-form" action="javascript:void(0);">
+                <h1>ADMIN</h1>
+                <h1 id="login-header">Log In</h1>
+                <p><b>Log In with the data that you have provided during Registration</b></p>
+                <div class="input-box">
+                    <img src="IMAGES/man-in-suit-and-tie (1).png" alt="User-login">
+                    <input type="text" placeholder="Username" id="email">
+                </div>
+                <div class="input-box">
+                    <img src="IMAGES/password (1).png" alt="Password">
+                    <input type="password" placeholder="Password" id="password">
+                </div>
+                <div class="Remember-me">
+                    <label><input type="checkbox">Remember Me</label>
+                    <a href="#"><b><i>Forgot password</i></b></a>
+                </div>
+
+                <button class="btn" type="button" onclick="login()">Log In</button>
+
+                <div class="register-link">
+                    <p>Don't have an account?<a href="register.html"><b><i>Register</i></b></a></p>
+                </div>
+            </form>
+        </div>
+    
+</body>
+
+</html>

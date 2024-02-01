@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Portal</title>
+    <link rel="shortcut icon" href="IMAGES/system_admin.ico" type="image/x-icon">
+    <link rel="stylesheet" href="login.css">
+    <script defer src="login-page.js"></script>
+</head>
+
+<body>
+    <main id="main-holder">
+        <div class="wrapper">
+            <form id="login-form" action="">
+                <h1>ADMIN</h1>
+                <h1 id="login-header">Log In</h1>
+                <p><b>Log In with the data that you have provided during Registration</b></p>
+                <div class="input-box">
+                    <img src="IMAGES/man-in-suit-and-tie (1).png" alt="User-login">
+                    <input type="text" placeholder="Username">
+                </div>
+                <div class="input-box">
+                    <img src="IMAGES/password (1).png" alt="Password">
+                    <input type="password" placeholder="Password">
+                </div>
+                <div class="Remember-me">
+                    <label><input type="checkbox">Remember Me</label>
+                    <a href="#"><b><i>Forgot password</i></b></a>
+                </div>
+
+                <button class="btn" type="submit" onclick="login()">Log In</button>
+
+                <div class="register-link">
+                    <p>Don't have an account?<a href="register.html"><b><i>Register</i></b></a></p>
+                </div>
+            </form>
+        </div>
+    </main>
+    <script>
+        function login() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    // In a real-world scenario, you would send the credentials to the server for verification
+    // For simplicity, I'm using a dummy check here. Replace this with your server-side logic.
+    if (isValidUser(email, password)) {
+        document.cookie = 'isLoggedIn=true; path=/'; // Set a cookie to indicate the user is logged in
+        alert('Login successful!');
+        window.location.href = 'homeA.html'; // Redirect to the home page after successful login
+    } else {
+        alert('Invalid credentials');
+    }
+}
+
+function isValidUser(email, password) {
+    // In a real-world scenario, you would check against a database or another secure method
+    // Here, I'm using a simple check for demonstration purposes
+    return email === 'get' && password === 'password';
+}
+
+
+        function getCookie(name) {
+            const value = `;${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+    </script>
+</body>
+
+</html>
